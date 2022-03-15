@@ -4,8 +4,16 @@ class LoginInput extends StatelessWidget {
   final Icon? icon;
   final String label;
   final IconButton? suffix;
+  final TextEditingController controller;
+  final dynamic validator;
 
-  const LoginInput({Key? key, this.icon, required this.label, this.suffix})
+  const LoginInput(
+      {Key? key,
+      this.icon,
+      required this.label,
+      this.suffix,
+      required this.controller,
+      this.validator})
       : super(key: key);
 
   @override
@@ -13,6 +21,8 @@ class LoginInput extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(top: 20),
       child: TextFormField(
+        controller: controller,
+        validator: validator,
         decoration: InputDecoration(
           labelText: label,
           border: OutlineInputBorder(

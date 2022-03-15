@@ -7,10 +7,10 @@ import 'package:flutter_modular/flutter_modular.dart';
 class CoreModule extends Module {
   @override
   final List<Bind> binds = [
-    Bind.singleton((i) => AuthGuard()),
-    Bind.lazySingleton((i) => Dio()),
-    Bind.lazySingleton((i) => UserRepository(dio: i())),
-    Bind.lazySingleton((i) => UserService(userRepository: i())),
+    Bind.singleton((i) => AuthGuard(), export: true),
+    Bind.lazySingleton((i) => Dio(), export: true),
+    Bind.lazySingleton((i) => UserRepository(dio: i()), export: true),
+    Bind.lazySingleton((i) => UserService(userRepository: i()), export: true),
   ];
 
   @override
